@@ -18,6 +18,8 @@ Wait for both to finish.
 
 Only after Step 1 is complete, hand the **test-writer** subagent both results: the coverage gaps and any review findings that can be pinned down with a test. Ask it to add the tests and run the suite.
 
+Run the test-writer in the **foreground**, not as a background agent. It writes files and runs `npm`, and a background agent cannot ask the user to approve those permissions, so it would be blocked. If it is still blocked, tell the user which permission was denied instead of writing the tests yourself.
+
 ## Step 3 - Report
 
 Combine everything into one short report:
